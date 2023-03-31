@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TOSS</title>
+    <style>
+        .grid-container{
+            text-align: center;
+            display: grid;
+            grid-template-columns:100px 1fr 1fr 100px;
+            grid-template-rows: 100px 100px 1fr;
+            grid-template-areas: 
+            ". title title ."
+            ". head tail ."
+            ". result result ."
+            ". usScore CompScore ."
+        }
+        .title{
+            grid-area: title;
+        }
+        .head{
+            grid-area: head;
+            font-size: x-large;
+        }
+        .tail{
+            grid-area: tail;
+            font-size: x-large;
+        }
+        .result{
+            grid-area: result;
+            font-size: x-large;
+        }
+        .userScore{
+            grid-area: usScore;
+            font-size: large;
+        }
+        .computerScore{
+            grid-area: CompScore;
+            font-size: large;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <!-- title -->
+        <h1 class="title">**********TOSS**********</h1>
+
+        <!-- Head and Tail -->
+        <button type="button" class="head" >Head</button>
+        <button type="button" class="tail">Tail</button>
+
+        <!-- Result -->
+        <P class="result"></P>
+
+        <!-- Score -->
+        <p class="userScore"></p>
+        <p class="computerScore"></p>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
