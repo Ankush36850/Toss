@@ -3,38 +3,29 @@ let tailButton = document.querySelector(".tail")
 let user = document.querySelector(".userScore")
 let Computer = document.querySelector(".computerScore")
 let H_or_T = document.querySelector(".result")
-let user_score = []
-let computer_Score = []
+let user_score = 0
+let computer_Score = 0
 
 headButton.addEventListener("click", toss)
 tailButton.addEventListener("click", toss)
 
 
-function toss(){      
+function toss(event){      
     let result = Math.round(Math.random())
-    if(result == 1){
+    let choice = ["Head","Tail"]
+    let random_choice = choice[result]
+    let user_selection = event.target.innerText
+    console.log(user_selection , random_choice)
+    if(random_choice.toUpperCase() === user_selection.toUpperCase()){
         H_or_T.innerHTML = "Result : Win"
-        user_score.push(result)
-        computer_Score.push(result - 1)       
-        user.innerHTML = `User Score is : ${calculate(user_score)}`
-        Computer.innerHTML = `Computer Score is : ${calculate(computer_Score)}`
+        user_score++      
+        user.innerHTML = `User Score is : ${user_score}`
+        Computer.innerHTML = `Computer Score is : ${computer_Score}`
     }
     else{
         H_or_T.innerHTML = "Result : Lose"
-        user_score.push(result)
-        computer_Score.push(result + 1)
-        user.innerHTML = `User Score is : ${calculate(user_score)}`
-        Computer.innerHTML = `Computer Score is : ${calculate(computer_Score)}`
+        computer_Score++
+        user.innerHTML = `User Score is : ${user_score}`
+        Computer.innerHTML = `Computer Score is : ${computer_Score}`
     }
 }
-
-function calculate(data){
-    let sum = 0
-    for(let t of data){
-        sum = sum + t
-    }
-    return sum
-}
-
-
-
